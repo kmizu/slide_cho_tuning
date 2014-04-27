@@ -27,6 +27,113 @@ $ ./sbt compile packageJS optimizeJS
     </pre>
 </div>
 
+<div class="section">
+<h1>Powered by</h1>
+<h2><a href="http://www.scala-js.org/">Scala.js</a></h2>
+<h2><a href="https://github.com/tototoshi/scala-js-slide">scala-js-slide</a></h2>
+</div>
+
+<div class="section">
+<h1>発表の構成</h1>
+チューニングした点を順番に解説していきます
+</div>
+
+<div class="section">
+<h1>方針</h1>
+<h3>やむを得ない場合を除いてサイトのデザインは変えない</h3>
+<h3>基本に忠実に</h3>
+</div>
+
+<div class="section">
+<h1>ポイント①</h1>
+<pre class="sh_html">
+&lt;script src=<font color="red">'http://cyouosoiserver.kunikiya.jp/js/jquery-1.9.1.min.js'</font> type='text/javascript'   charset='utf-8'&gt;&lt;/script&gt;
+</pre>
+<center>
+↓
+</center>
+<pre class="sh_html">
+&lt;script src=<font color="red">"js/jquery-1.9.1.min.js"</font> type='text/javascript'   charset='utf-8'&gt;&lt;/script&gt;
+</pre>
+</div>
+
+<div class="section">
+<h1>ポイント②</h1>
+<p>
+<center>
+<h2>JavaScriptのminify</h2>
+<h2><font color="blue"><a href="https://developers.google.com/closure/compiler/?hl=ja">Google Closure Compiler</a></font></h2>
+</center>
+</p>
+</div>
+
+<div class="section">
+<ul>
+<li>adsSimple-1.0.0.min.js → adsSimple-1.0.0.min.min.js</li>
+<li>bookmarkbubble.js → bookmarkbubble.min.js</li>
+<li>bookmarkbubble_move.js →bookmarkbubble_move.min.js</li>
+<li>categoryalliance.js → categoryalliance.min.js</li>
+<li>jquery.showMenu.js → jquery.showMenu.min.js</li>
+<li>middle_banner.js → middle_banner.min.js</li>
+<li>nicoapi.js → nicoapi.min.js</li>
+<li>urchin.js → urchin.min.js</li>
+</ul>
+</div>
+
+<div class="section">
+<p>
+<center>
+<h1>ここまでが第一段階</h1>
+</center>
+</p>
+</div>
+
+<div class="section">
+<h1>ポイント②</h1>
+<h2>.jsファイルの結合
+  <ul><li>HTTPリクエストを減らせる可能性</li></ul>
+</h2>
+<h2>Google Closureコンパイラを使う</h2>
+</div>
+
+<div class="section">
+<ul>
+  <li>application.js
+  <ul>
+  <li>adsSimple-1.0.0.min.min.js</li>
+  <li>bookmarkbubble.min.js</li>
+  <li>bookmarkbubble_move.min.js</li>
+  <li>categoryalliance.min.js</li>
+  <li>jquery.showMenu.min.js</li>
+  <li>middle_banner.min.js</li>
+  <li>nicoapi.min.js</li>
+  <li>urchin.min.js</li>
+  </ul>
+</ul>
+</div>
+<div class="section">
+<h1>ポイント③</h1>
+<h2>CSSのminify</h2>
+<h2><a href="http://yui.github.io/yuicompressor/">Yui Compressor</a></h2>
+</div>
+
+<div class="section">
+<ul>
+<li>common.css → common.min.css</li>
+<li>reset.css → reset.min.css</li>
+<li>site_header.css → site_header.min.css</li>
+<li>special_pickup.css → special_pickup.min.css</li>
+</ul>
+</div>
+
+<div class="section">
+<p>
+<center>
+<h1>ここまでが第二段階</h1>
+</center>
+</p>
+</div>
+
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script type="text/javascript" src="./target/scala-2.10/slide-opt.js"></script>
 <script type="text/javascript">
